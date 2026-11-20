@@ -17,6 +17,9 @@ services:
       # Mount your dbt profiles
       - ./profiles:/workspace/profiles
 
+    env_file:
+      - ./profiles/.env
+
     environment:
       DBT_PROFILES_DIR: /workspace/profiles
       PYTHONUNBUFFERED: "1"

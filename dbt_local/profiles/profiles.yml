@@ -7,7 +7,7 @@ test_1:
       schema: jaffle_shop
       host: dbc-0c70d34c-f2d2.cloud.databricks.com
       http_path: /sql/1.0/warehouses/23313b01aa1f4512
-      token: {{env_var('test_1_databricks_token')}}
+      token: "{{ env_var('DBT_ENV_SECRET_test_1_databricks_token') }}"
       auth_type: token
       threads: 16
 
