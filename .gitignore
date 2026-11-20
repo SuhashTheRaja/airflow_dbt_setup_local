@@ -1,0 +1,7 @@
+/airflow_local/config/simple_auth_manager_passwords.json.generated
+/airflow_local/dags/__pycache__
+/airflow_local/logs
+/dbt_local/profiles/.env
+/dbt_local/projects/jaffle_shop
+/dbt_local/projects/logs
+/dbt_local/projects/jaffle_shop

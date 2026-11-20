@@ -1,0 +1,3 @@
+include:
+  - path: ./airflow_local/docker-compose.yml
+  - path: ./dbt_local/docker-compose.yml

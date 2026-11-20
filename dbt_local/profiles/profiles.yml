@@ -1,0 +1,35 @@
+test_1:
+  target: dev
+  outputs:      
+    dev:
+      type: databricks
+      database: analytics_dbt
+      schema: jaffle_shop
+      host: dbc-0c70d34c-f2d2.cloud.databricks.com
+      http_path: /sql/1.0/warehouses/23313b01aa1f4512
+      token: {{env_var('test_1_databricks_token')}}
+      auth_type: token
+      threads: 16
+
+retail_data_platform:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      host: "{{ env_var('databricks_host_dev') }}"
+      http_path: "{{ env_var('databricks_http_path_dev') }}"
+      catalog: "{{ env_var('databricks_catalog_dev') }}"
+      schema: retail_dev
+      token: "{{ env_var('databricks_token_dev') }}"
+      auth_type: token
+      threads: 4
+
+    prod:
+      type: databricks
+      host: "{{ env_var('databricks_host_prod') }}"
+      http_path: "{{ env_var('databricks_http_path_prod') }}"
+      catalog: "{{ env_var('databricks_catalog_prod') }}"
+      schema: gold
+      token: "{{ env_var('databricks_token_prod') }}"
+      auth_type: token
+      threads: 4

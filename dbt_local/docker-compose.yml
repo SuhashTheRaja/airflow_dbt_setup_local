@@ -1,0 +1,35 @@
+services:
+  dbt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: local-dbt-databricks:latest
+
+    container_name: dbt-container
+
+    working_dir: /workspace
+
+    volumes:
+      # Mount your local dbt projects
+      - ./projects:/workspace/projects
+
+      # Mount your dbt profiles
+      - ./profiles:/workspace/profiles
+
+    environment:
+      DBT_PROFILES_DIR: /workspace/profiles
+      PYTHONUNBUFFERED: "1"
+
+    stdin_open: true
+    tty: true
+
+    command: ["bash"]
+
+    networks:
+      - shared
+
+networks:
+  shared:
+    name: dev_for_now_shared
+    driver: bridge
